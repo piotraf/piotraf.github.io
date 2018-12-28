@@ -24,6 +24,8 @@ rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
 @core  --nodefaults
+wget
+vim
 -iwl*
 -ply*
 -postfix
@@ -40,5 +42,16 @@ chown -R admin: /home/admin/.ssh
 cat >> /etc/sudoers << "EOF"
 admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
+cat >> /etc/sysctl.d/98-user.conf <<"EOF"
+## optional to decrease the use of swap
+vm.swappiness = 10 
+EOF
+cat >> /etc/vimrc << "EOF"
+set background=dark
+EOF
+systemctl disable --now kdump.service
+systemctl enable tmp.mount
+yum update -y
+reboot
 %end
 #############################################################
