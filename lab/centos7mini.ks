@@ -39,4 +39,5 @@ chmod 600 /home/admin/.ssh/authorized_keys
 cat >> /etc/sudoers << "EOF"
 admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
+%end
 #############################################################
