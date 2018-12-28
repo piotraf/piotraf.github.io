@@ -1,5 +1,5 @@
 ##############################################################
-#                      centos7mini.ks                        #
+#                      centos7mini.ks template               #
 ##############################################################
 install
 text
@@ -36,6 +36,7 @@ cat >  /home/admin/.ssh/authorized_keys << "EOF"
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP41JqHlPd+HNWENrJo6fStBy3967aYXE1/wEjtw5NwZ publicaccess-vlab44-ed25519-key-20181227
 EOF
 chmod 600 /home/admin/.ssh/authorized_keys
+chown -R admin: /home/admin/.ssh
 cat >> /etc/sudoers << "EOF"
 admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
