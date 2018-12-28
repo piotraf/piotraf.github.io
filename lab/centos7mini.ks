@@ -28,4 +28,15 @@ user --name=admin --groups=wheel --plaintext --password=welcome1
 -ply*
 -postfix
 %end
+%post --log=/root/postinstall.log
+# install public access key for lab purposes
+mkdir -p /home/admin/.ssh
+chmod 700 /home/admin/.ssh
+cat >  /home/admin/.ssh/authorized_keys << "EOF"
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP41JqHlPd+HNWENrJo6fStBy3967aYXE1/wEjtw5NwZ publicaccess-vlab44-ed25519-key-20181227
+EOF
+chmod 600 /home/admin/.ssh/authorized_keys
+cat >> /etc/sudoers << "EOF"
+admin        ALL=(ALL)       NOPASSWD: ALL
+EOF
 #############################################################
