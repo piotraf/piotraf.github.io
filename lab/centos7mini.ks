@@ -18,11 +18,14 @@ clearpart --all --initlabel
 part swap --asprimary --fstype="swap" --size=1024
 part /boot --fstype xfs --size=200
 part pv.01 --size=1 --grow
-volgroup rootvg01 pv.01
-logvol / --fstype xfs --name=lv01 --vgname=rootvg01 --size=1 --grow
+volgroup vg0 pv.01
+logvol / --fstype xfs --name=lv_root --vgname=vg0 --size=1 --grow
 rootpw "cangetin"
+user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
 @core  --nodefaults
 -iwl*
+-ply*
+-postfix
 %end
 #############################################################
