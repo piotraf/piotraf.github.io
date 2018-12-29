@@ -52,11 +52,12 @@ cat >> /etc/sysctl.d/98-user.conf <<"EOF"
 ## optional to decrease the use of swap
 vm.swappiness = 10 
 EOF
+systemctl disable kdump.service
+systemctl enable tmp.mount
+yum install vim wget
 cat >> /etc/vimrc << "EOF"
 set background=dark
 EOF
-systemctl disable --now kdump.service
-systemctl enable tmp.mount
 yum update -y
 reboot
 %end
