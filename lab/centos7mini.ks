@@ -24,10 +24,16 @@ rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
 @core  --nodefaults
-wget
-vim
+-audit
+-btrfs-progs
+-plymouth
+-NetworkManager-team
+-NetworkManager-tui
+-dracut-config-rescue
+-*-firmware
 -iwl*
--ply*
+-kernel-tools
+-linux-firmware
 -postfix
 %end
 %post --log=/root/postinstall.log
