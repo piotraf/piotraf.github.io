@@ -29,6 +29,8 @@ user --name=admin --groups=wheel --plaintext --password=welcome1
 -plymouth
 -NetworkManager-team
 -NetworkManager-tui
+-NetworkManager-libnm
+-NetworkManager-wifi
 -dracut-config-rescue
 -*-firmware
 -iwl*
