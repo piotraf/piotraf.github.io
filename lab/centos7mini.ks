@@ -56,11 +56,6 @@ vm.swappiness = 10
 EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
-yum install vim wget
-cat >> /etc/vimrc << "EOF"
-set background=dark
-EOF
-yum update -y
 reboot
 %end
 #############################################################
