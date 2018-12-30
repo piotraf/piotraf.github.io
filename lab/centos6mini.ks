@@ -35,6 +35,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA2YMUPsimi2gXkqm7DeF1j+Rw+wK9f/e3k9+OPw0uSH1T
 EOF
 chmod 600 /home/admin/.ssh/authorized_keys
 chown -R admin: /home/admin/.ssh
+restorecon -R -v /home/admin/.ssh
 cat >> /etc/sudoers << "EOF"
 admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
