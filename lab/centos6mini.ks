@@ -17,7 +17,7 @@ bootloader --location=mbr
 zerombr
 clearpart --all --initlabel
 part swap --asprimary --fstype="swap" --size=1024
-part /boot --fstype xfs --size=200
+part /boot --fstype ext4 --size=200
 part pv.01 --size=1 --grow
 volgroup vg0 pv.01
 logvol / --fstype xfs --name=lv_root --vgname=vg0 --size=1 --grow
