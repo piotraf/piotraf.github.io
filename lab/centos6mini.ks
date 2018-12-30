@@ -20,7 +20,7 @@ part swap --asprimary --fstype="swap" --size=1024
 part /boot --fstype ext4 --size=200
 part pv.01 --size=1 --grow
 volgroup vg0 pv.01
-logvol / --fstype xfs --name=lv_root --vgname=vg0 --size=1 --grow
+logvol / --fstype ext4 --name=lv_root --vgname=vg0 --size=1 --grow
 rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
