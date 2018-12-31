@@ -8,7 +8,7 @@ text
 cdrom
 lang pl_PL.UTF-8
 keyboard pl2
-timezone Europe/Warsaw
+timezone --utc Europe/Warsaw
 network --onboot=yes --bootproto=dhcp --device=enp0s3 --ipv6=auto --activate
 network --onboot=yes --device=enp0s8 --bootproto=static --ip=192.168.44.254 --netmask=255.255.255.0 --gateway=0.0.0.0 --nameserver=8.8.8.8 --noipv6
 network --hostname=ns1.example.com
