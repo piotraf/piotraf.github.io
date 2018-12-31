@@ -69,14 +69,13 @@ subnet 192.168.44.0 netmask 255.255.255.0 {
 	range 192.168.44.240 192.168.44.249;
 }
 EOF
-systemctl disable --now kdump.service
+systemctl disable kdump.service
 systemctl enable tmp.mount
 systemctl enable dhcpd
 nmcli c mod enp0s8 connection.zone internal
 nmcli c mod enp0s3 connection.zone external
 firewall-cmd --zone=internal --add-service=dns --permanent
 firewall-cmd --reload
-yum update -y
 reboot
 %end
 #############################################################
