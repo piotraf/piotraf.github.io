@@ -51,10 +51,14 @@ vm.swappiness = 10
 ## essential for NAT
 net.ipv4.ip_forward = 1
 EOF
+cat >>/etc/sysconfig/network-scripts/ifcfg-enp0s3 << "EOF"
+ZONE=external
+EOF
+cat >>/etc/sysconfig/network-scripts/ifcfg-enp0s8 << "EOF"
+ZONE=internal
+EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
-nmcli c mod 'System enp0s8' connection.zone internal
-nmcli c mod 'System enp0s3' connection.zone external
 reboot
 %end
 #############################################################
