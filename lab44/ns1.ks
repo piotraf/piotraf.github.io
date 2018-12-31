@@ -59,6 +59,5 @@ ZONE=internal
 EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
-reboot
 %end
 #############################################################
