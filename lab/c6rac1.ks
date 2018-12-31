@@ -8,7 +8,7 @@ text
 cdrom
 lang en_US.UTF-8
 keyboard pl2
-timezone Europe/Warsaw
+timezone --utc Europe/Warsaw
 auth --useshadow --enablemd5
 services --enabled=sshd
 network --device=eth0  --onboot=on --bootproto=dhcp
