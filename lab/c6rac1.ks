@@ -1,5 +1,5 @@
 ##############################################################
-#                      centos6mini.ks template               #
+#                      c6rac1.ks template                    #
 # append to the boot kernel line (use TAB):                  #
 # ks=http://piotraf.github.io/lab/c6rac1.ks ksdevice=eth0    #
 ##############################################################
