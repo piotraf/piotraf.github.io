@@ -11,7 +11,8 @@ keyboard pl2
 timezone Europe/Warsaw
 auth --useshadow --enablemd5
 services --enabled=sshd
-network --bootproto=dhcp --device=eth0
+network --device=eth0  --onboot=on --bootproto=dhcp
+network --device=eth1  --onboot=on --bootproto=static --ip=192.168.44.102 --netmask=255.255.255.0 --gateway=192.168.44.1 --nameserver=8.8.8.8 --hostname=olg.dbi-services.com
 firewall --disable
 selinux --disable
 ignoredisk --only-use=sda
