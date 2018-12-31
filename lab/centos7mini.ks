@@ -8,7 +8,7 @@ text
 cdrom
 lang pl_PL.UTF-8
 keyboard pl2
-timezone Europe/Warsaw
+timezone --utc Europe/Warsaw
 auth --useshadow --enablemd5
 services --enabled=NetworkManager,sshd
 eula --agreed
