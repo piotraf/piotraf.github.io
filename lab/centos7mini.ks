@@ -1,5 +1,7 @@
 ##############################################################
 #                      centos7mini.ks template               #
+# append to the boot kernel line (use TAB):                  #
+# inst.ks=http://piotraf.github.io/lab/centos7mini.ks        #
 ##############################################################
 install
 text
