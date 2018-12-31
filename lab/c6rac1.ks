@@ -6,7 +6,7 @@
 install
 text
 cdrom
-lang pl_PL.UTF-8
+lang en_US.UTF-8
 keyboard pl2
 timezone Europe/Warsaw
 auth --useshadow --enablemd5
