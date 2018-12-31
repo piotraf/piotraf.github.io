@@ -29,10 +29,6 @@ rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
 @core  --nodefaults
-wget
-vim
-dhcp
-unbound
 -iwl*
 -ply*
 -postfix
@@ -55,27 +51,10 @@ vm.swappiness = 10
 ## essential for NAT
 net.ipv4.ip_forward = 1
 EOF
-cat >> /etc/vimrc << "EOF"
-set background=dark
-EOF
-cat > /etc/dhcp/dhcpd.conf << "EOF"
-ddns-update-style ad-hoc;
-ddns-update-style interim;
-subnet 192.168.44.0 netmask 255.255.255.0 {
-        option routers                  192.168.44.254;
-        option subnet-mask              255.255.255.0;
-        option domain-name              "example.com";
-        option domain-name-servers       192.168.44.254;
-	range 192.168.44.240 192.168.44.249;
-}
-EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
-systemctl enable dhcpd
-nmcli c mod enp0s8 connection.zone internal
-nmcli c mod enp0s3 connection.zone external
-firewall-cmd --zone=internal --add-service=dns --permanent
-firewall-cmd --reload
+nmcli c mod 'System enp0s8' connection.zone internal
+nmcli c mod 'System enp0s3' connection.zone external
 reboot
 %end
 #############################################################
