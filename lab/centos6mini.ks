@@ -1,5 +1,7 @@
 ##############################################################
 #                      centos6mini.ks template               #
+# append to the boot kernel line (use TAB):                  #
+# ks=http://piotraf.github.io/lab/centos6mini.ks             #
 ##############################################################
 install
 text
