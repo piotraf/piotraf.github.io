@@ -1,5 +1,7 @@
 ##############################################################
 #                      centos6mini.ks template               #
+# append to the boot kernel line (use TAB):                  #
+# ks=http://piotraf.github.io/lab/c6rac1.ks ksdevice=eth0    #
 ##############################################################
 install
 text
@@ -10,7 +12,8 @@ timezone Europe/Warsaw
 auth --useshadow --enablemd5
 services --enabled=sshd
 network --bootproto=dhcp --device=eth0
-firewall --enable --ssh --trust=eth0
+firewall --disable
+selinux --disable
 ignoredisk --only-use=sda
 reboot --eject
 bootloader --location=mbr
@@ -35,7 +38,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA2YMUPsimi2gXkqm7DeF1j+Rw+wK9f/e3k9+OPw0uSH1T
 EOF
 chmod 600 /home/admin/.ssh/authorized_keys
 chown -R admin: /home/admin/.ssh
-restorecon -R -v /home/admin/.ssh
+#restorecon -R -v /home/admin/.ssh
 cat >> /etc/sudoers << "EOF"
 admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
