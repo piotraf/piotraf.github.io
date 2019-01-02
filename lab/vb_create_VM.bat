@@ -1,3 +1,4 @@
+DRAFT NOTES - DO NOT USE
 ; prerequisites - installed VirtualBox (tested on VirtualBox version 6.0.0 on Microsoft Windows 10)
 ; commands to be performed in CMD 
 set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"
