@@ -1,13 +1,13 @@
-#!/bin/bash
+# DO NOT USE MINDLESSLY AS A SCRIPT - USE AS SEPARATE COMMANDS/STEPS
+###!/bin/bash
 #
 # LICENSE UPL 1.0
 #
 # Copyright (c) 2019 Piotr Fratczak and/or its affiliates. All rights reserved.
 # 
-# Since: January, 2019
+# Since: April, 2019
 # Author: Piotr Fratczak piotr4f (at) gmail.com
 # Description: Post install setup of linux Centos 7 router for LAB44
-# 
 # DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 # assumption - the system was created with ns1.ks and the network interfaces names are:
 # connection to the internet dynamic IP - interface after innstalation is named "System enp0s3"
