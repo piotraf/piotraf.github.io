@@ -1,5 +1,5 @@
 ##############################################################
-#                      c7 .ks template                       #
+#                      c7.ks template                       #
 # append to the boot kernel line (use TAB):                  #
 # inst.ks=http://piotraf.github.io/lab44/c7.ks               #
 ##############################################################
@@ -9,7 +9,6 @@ cdrom
 lang pl_PL.UTF-8
 keyboard pl2
 timezone --utc Europe/Warsaw
-network --onboot=yes --bootproto=dhcp --device=enp0s3 --ipv6=auto --activate
 auth --useshadow --enablemd5
 services --enabled=NetworkManager,sshd
 eula --agreed
@@ -27,8 +26,18 @@ rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
 @core  --nodefaults
+-audit
+-btrfs-progs
+-plymouth
+-NetworkManager-team
+-NetworkManager-tui
+-NetworkManager-libnm
+-NetworkManager-wifi
+-dracut-config-rescue
+-*-firmware
 -iwl*
--ply*
+-kernel-tools
+-linux-firmware
 -postfix
 %end
 %post --log=/root/postinstall.log
@@ -45,5 +54,6 @@ admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
+reboot
 %end
 #############################################################
