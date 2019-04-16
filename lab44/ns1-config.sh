@@ -52,6 +52,9 @@ EOF
 systemctl enable --now unbound
 firewall-cmd --zone=internal --add-service=dns --permanent
 firewall-cmd --reload
+nmcli c m 'System enp0s3' ipv4.dns '192.168.44.254'  +ipv4.ignore-auto-dns 'yes'
+nmcli c m 'System enp0s8'  ipv4.dns '' +ipv4.ignore-auto-dns 'yes'
+nmcli c up 'System enp0s8'
 ## create DHCP server for the LAB44
 
 
