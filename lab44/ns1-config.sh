@@ -56,5 +56,46 @@ nmcli c m 'System enp0s3' ipv4.dns '192.168.44.254'  +ipv4.ignore-auto-dns 'yes'
 nmcli c m 'System enp0s8'  ipv4.dns '' +ipv4.ignore-auto-dns 'yes'
 nmcli c up 'System enp0s8'
 ## create DHCP server for the LAB44
+yum install dhcp -y
+cat > /etc/dhcp/dhcpd.conf << "EOF"
+# dhcpd.conf
+# see more at /usr/share/doc/dhcp*/dhcpd.conf.example
 
+# option definitions common to all supported networks...
+option domain-name "example.com";
+option domain-name-servers ns1.example.com, ns2.example.com;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+# Use this to enble / disable dynamic dns updates globally.
+ddns-updates           on;
+ddns-update-style      interim;
+ignore                 client-updates;
+update-static-leases   on;
+
+# If this DHCP server is the official DHCP server for the local
+# network, the authoritative directive should be uncommented.
+authoritative;
+
+# Use this to send dhcp log messages to a different log file (you also
+# have to hack syslog.conf to complete the redirection).
+log-facility local7;
+
+
+
+
+subnet 192.168.44.0 netmask 255.255.255.0 {
+        option routers                  192.168.44.254;
+        option subnet-mask              255.255.255.0;
+        option domain-name-servers       192.168.44.254;
+range 192.168.44.240 192.168.44.249;
+#host workstation {
+#     hardware ethernet 08:00:27:b0:d0:1a;
+#     fixed-address 192.168.44.2;
+#	}
+}
+EOF
+systemctl enable --now dhcpd
+###
 
