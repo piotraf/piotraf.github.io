@@ -23,7 +23,7 @@ and press Enter. Grab a cup of coffee and wait. :-)
  * connect with the new putty connection
  * run:
   * ```sudo su -```
-  * ```yum update -y```
+  * ```yum update -y&&reboot``` (optional)
   * proceed with steps: https://github.com/piotraf/piotraf.github.io/blob/master/lab44/ns1-config.sh
   
   
