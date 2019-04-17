@@ -1,5 +1,12 @@
-# VirtualBox Lab44
-## Creating the lab44 router with dhcp and dns server based on unbound
+# Lab44 Project
+## Creating the lab44 router with dhcp and dns server based on unbound server with Centos 7 kickstart installation
+### prerequisites:
+VM/PC with:
+* 2 network interfaces
+* CPU: 64-bit
+* RAM: 1GB
+* HDD: 8GB
+Due to naming of network interfaces this instruction and kickstart are meant for VirtualBox users
 1. Create network for the lab:
 * VirtualBox "Host Network Manager"(CTRL+H)/create:
   * Adapter:
