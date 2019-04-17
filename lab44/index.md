@@ -19,8 +19,8 @@
 ```inst.ks=http://piotraf.github.io/lab44/ns1.ks```
 and press Enter. Grab a cup of coffee and wait. :-)
 4. While waiting:
-* download https://piotraf.github.io/lab44/publicaccess-vlab44-ed25519-key-20181227.pub
-* download https://piotraf.github.io/lab44/publicaccess-vlab44-ed25519-key-20181227.ppk
+* download [public key](https://piotraf.github.io/lab44/publicaccess-vlab44-ed25519-key-20181227.pub)
+* download [private key](https://piotraf.github.io/lab44/publicaccess-vlab44-ed25519-key-20181227.ppk)
 * configure your putty settings to:
   * ```ip: 192.168.44.254```
   * ```port: 22```
@@ -32,7 +32,7 @@ and press Enter. Grab a cup of coffee and wait. :-)
  * run:
   * ```sudo su -```
   * ```yum update -y&&reboot``` (optional)
-  * proceed with steps: https://github.com/piotraf/piotraf.github.io/blob/master/lab44/ns1-config.sh
+  * proceed with steps: [Name and dhcp server setup](https://github.com/piotraf/piotraf.github.io/blob/master/lab44/ns1-config.sh)
   
   
   
