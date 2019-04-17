@@ -24,7 +24,7 @@ and press Enter. Grab a cup of coffee and wait. :-)
  * run:
   * ```sudo su -```
   * ```yum update -y```
-  * proceed with steps: https://github.com/piotraf/piotraf.github.io/lab44/ns1-config.sh
+  * proceed with steps: https://github.com/piotraf/piotraf.github.io/blob/master/lab44/ns1-config.sh
   
   
   
