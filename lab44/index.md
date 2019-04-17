@@ -39,7 +39,7 @@ and press Enter. Grab a cup of coffee and wait. :-)
  * run:
   * ```sudo su -```
   * ```yum update -y&&reboot``` (optional)
-  * proceed with steps: [Name and dhcp server setup](https://piotraf.github.io/lab44/ns1-config.md)
+  * proceed with steps: [Name and dhcp server setup](ns1-config.md)
   
   
   
