@@ -1,1 +1,1 @@
-https://piotraf.github.io/lab44/
+[Lab44](https://piotraf.github.io/lab44/)
