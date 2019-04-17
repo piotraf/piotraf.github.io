@@ -1,7 +1,8 @@
 # Post install setup of linux Centos 7 router for LAB44
 * assumption - the system was created with ns1.ks and the network interfaces names are:
-    * connection to the internet dynamic IP - interface after innstalation is named "System enp0s3"
-    * connection to the intranet (LAB44) static IP 192.168.44.254 - interface after innstalation is named "System enp0s8"
+   * connection to the internet dynamic IP - interface after innstalation is named "System enp0s3"
+   * connection to the intranet (LAB44) static IP 192.168.44.254 - interface after innstalation is named "System enp0s8"
+    
 ## create Name Server 
 ```
 yum install unbound -y
