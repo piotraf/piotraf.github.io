@@ -29,6 +29,14 @@ rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
 %packages --nobase --ignoremissing
 @core  --nodefaults
+wget
+vim
+unbound
+dhcp
+bzip2
+kernel-devel
+perl
+gcc
 -iwl*
 -ply*
 -postfix
