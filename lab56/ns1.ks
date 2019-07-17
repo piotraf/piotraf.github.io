@@ -33,8 +33,6 @@ user --name=admin --groups=wheel --plaintext --password=welcome1
 -ply*
 -postfix
 -*-firmware
-dhcp
-vim
 %end
 %post --log=/root/postinstall.log
 # install public access key for lab purposes
@@ -62,5 +60,19 @@ ZONE=internal
 EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
+# generic localhost names
+cat >> /etc/hosts << "EOF"
+192.168.56.254 ns1.example.com ns1
+# utility script
+echo -n "Utility scripts"
+echo "== Utility scripts ==" >> /root/ks-post.debug.log
+wget -O /var/tmp/test.sh https://piotraf.github.io/lab56/ns1.ks 2 >> /root/ks-post.debug.log 2&>1
+chmod +x /var/tmp/test.sh
+echo .
+# remove unnecessary packages
+echo -n "Removing unnecessary packages"
+echo "== Removing unnecessary packages ==" >> /root/ks-post.debug.log
+yum -C -y remove linux-firmware >> /root/ks-post.debug.log 2&>1
+echo .
 %end
 #############################################################
