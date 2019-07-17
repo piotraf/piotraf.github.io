@@ -9,7 +9,7 @@ cdrom
 lang pl_PL.UTF-8
 keyboard pl2
 timezone --utc Europe/Warsaw --ntpservers=0.pl.pool.ntp.org,1.pl.pool.ntp.org,2.pl.pool.ntp.org,3.pl.pool.ntp.org
-network --onboot=yes --bootproto=dhcp --device=enp0s3 --ipv6=auto --activate
+network --onboot=yes --bootproto=dhcp --device=enp0s3 --nameserver=192.168.56.254 --ipv6=auto --activate
 network --onboot=yes --bootproto=static --device=enp0s8 --ip=192.168.56.254 --netmask=255.255.255.0 --gateway=0.0.0.0 --nameserver=192.168.56.254 --noipv6
 network --hostname=ns1.example.com
 auth --useshadow --enablemd5
