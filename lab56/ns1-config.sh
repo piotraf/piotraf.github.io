@@ -14,8 +14,7 @@
 # connection to the intranet (LAB44) static IP 192.168.56.254 - interface after innstalation is named "System enp0s8"
 # create Name Server 
 yum install unbound -y 
-cp /etc/unbound/unbound.conf{,.orig}
-sed -i 's/# interface: 0.0.0.0$/interface: 0.0.0.0/g' /etc/unbound/unbound.conf
+sed -i.orig 's/# interface: 0.0.0.0$/interface: 0.0.0.0/g' /etc/unbound/unbound.conf
 sed -i 's/\# access-control: 127.0.0.0\/8 allow/access-control: 192.168.0.0\/16 allow/g' /etc/unbound/unbound.conf
 mv /etc/unbound/conf.d/example.com.conf{,.stub-zone}
 cat >> /etc/unbound/conf.d/example.com.conf << "EOF"
