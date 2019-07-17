@@ -74,6 +74,9 @@ cat >> /etc/hosts << "EOF"
 192.168.56.254 ns1.example.com ns1
 EOF
 sed -i.orig 's/\#allow 192.168.0.0\/16/allow 192.168.0.0\/16/' /etc/chrony.conf
+cat >> /etc/vimrc << "EOF"
+set background=dark
+EOF
 # utility script
 echo -n "Utility scripts"
 echo "== Utility scripts ==" >> /root/ks-post.debug.log
