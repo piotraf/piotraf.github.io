@@ -74,6 +74,12 @@ cat >> /etc/hosts << "EOF"
 192.168.56.254 ns1.example.com ns1
 EOF
 sed -i.orig 's/\#allow 192.168.0.0\/16/allow 192.168.0.0\/16/' /etc/chrony.conf
+# utility script
+echo -n "Utility scripts"
+echo "== Utility scripts ==" >> /root/ks-post.debug.log
+wget -O /var/tmp/ns1-config.sh https://piotraf.github.io/lab56/ns1-config.sh 2 >> /root/ks-post.debug.log 2&>1
+chmod +x /var/tmp/ns1-config.sh
+echo .
 # remove unnecessary packages
 echo -n "Removing unnecessary packages"
 echo "== Removing unnecessary packages ==" >> /root/ks-post.debug.log
