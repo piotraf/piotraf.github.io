@@ -21,7 +21,7 @@ bootloader --location=mbr
 zerombr
 clearpart --all --initlabel
 part swap --asprimary --fstype="swap" --size=1024
-part /boot --fstype xfs --size=200
+part /boot --fstype xfs --size=512
 part pv.01 --size=1 --grow
 volgroup vg0 pv.01
 logvol / --fstype xfs --name=lv_root --vgname=vg0 --size=1 --grow
@@ -32,6 +32,9 @@ user --name=admin --groups=wheel --plaintext --password=welcome1
 -iwl*
 -ply*
 -postfix
+-*-firmware
+dhcp
+vim
 %end
 %post --log=/root/postinstall.log
 # install public access key for lab purposes
@@ -47,7 +50,7 @@ admin        ALL=(ALL)       NOPASSWD: ALL
 EOF
 cat >> /etc/sysctl.d/98-user.conf <<"EOF"
 ## optional to decrease the use of swap
-vm.swappiness = 10 
+vm.swappiness = 1 
 ## essential for NAT
 net.ipv4.ip_forward = 1
 EOF
