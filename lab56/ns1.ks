@@ -60,7 +60,7 @@ ZONE=internal
 EOF
 systemctl disable kdump.service
 systemctl enable tmp.mount
-firewall-cmd --zone=internal  --add-service=ntp --permanent
+firewall-offline-cmd --zone=internal  --add-service=ntp --permanent
 # generic localhost names
 cat >> /etc/hosts << "EOF"
 192.168.56.254 ns1.example.com ns1
