@@ -65,13 +65,7 @@ firewall-cmd --zone=internal  --add-service=ntp --permanent
 cat >> /etc/hosts << "EOF"
 192.168.56.254 ns1.example.com ns1
 EOF
- sed -i.orig 's/\#allow 192.168.0.0\/16/allow 192.168.0.0\/16/' /etc/chrony.conf
-# utility script
-echo -n "Utility scripts"
-echo "== Utility scripts ==" >> /root/ks-post.debug.log
-wget -O /var/tmp/test.sh https://piotraf.github.io/lab56/ns1.ks 2 >> /root/ks-post.debug.log 2&>1
-chmod +x /var/tmp/test.sh
-echo .
+sed -i.orig 's/\#allow 192.168.0.0\/16/allow 192.168.0.0\/16/' /etc/chrony.conf
 # remove unnecessary packages
 echo -n "Removing unnecessary packages"
 echo "== Removing unnecessary packages ==" >> /root/ks-post.debug.log
