@@ -123,7 +123,6 @@ forward-zone:
       forward-addr: 216.146.36.36  # Dyn Public
 ############
 EOF
-firewall-offline-cmd --zone=internal --add-service=dns
 ## create DHCP server for the LAB44
 cat > /etc/dhcp/dhcpd.conf << "EOF"
 # dhcpd.conf
@@ -165,6 +164,7 @@ range 192.168.56.240 192.168.56.249;
 }
 EOF
 ###
+firewall-offline-cmd --zone=internal --add-service=dns --add-service=dhcp 
 ###
 %end
 #############################################################
