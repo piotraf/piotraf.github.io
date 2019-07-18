@@ -9,8 +9,8 @@ cdrom
 lang pl_PL.UTF-8
 keyboard pl2
 timezone --utc Europe/Warsaw --ntpservers=0.pl.pool.ntp.org,1.pl.pool.ntp.org,2.pl.pool.ntp.org,3.pl.pool.ntp.org
-network --onboot=yes --bootproto=dhcp --device=enp0s3 --nameserver=192.168.4.254 --ipv6=auto --activate
-network --onboot=yes --bootproto=static --device=enp0s8 --ip=192.168.4.254 --netmask=255.255.255.0 --gateway=0.0.0.0 --nameserver=192.168.4.254 --noipv6
+network --onboot=yes --bootproto=dhcp --device=enp0s3 --nameserver=192.168.4.2 --ipv6=auto --activate
+network --onboot=yes --bootproto=static --device=enp0s8 --ip=192.168.4.2 --netmask=255.255.255.0 --gateway=0.0.0.0 --nameserver=192.168.4.2 --noipv6
 network --hostname=ns1.example.com
 auth --useshadow --enablemd5
 services --enabled=NetworkManager,sshd,chronyd,dhcpd,unbound
@@ -71,7 +71,7 @@ systemctl enable tmp.mount
 firewall-offline-cmd --zone=internal  --add-service=ntp
 # generic localhost names
 cat >> /etc/hosts << "EOF"
-192.168.4.254 ns1.example.com ns1
+192.168.4.2 ns1.example.com ns1
 EOF
 sed -i.orig 's/\#allow 192.168.0.0\/16/allow 192.168.0.0\/16/' /etc/chrony.conf
 cat >> /etc/vimrc << "EOF"
@@ -95,8 +95,8 @@ mv /etc/unbound/conf.d/example.com.conf{,.stub-zone}
 cat >> /etc/unbound/conf.d/example.com.conf << "EOF"
 server:
 local-zone: "example.com." static
-local-data: "ns1.example.com.  IN A 192.168.4.254"
-local-data-ptr: "192.168.4.254  ns1.example.com"
+local-data: "ns1.example.com.  IN A 192.168.4.2"
+local-data-ptr: "192.168.4.2  ns1.example.com"
 local-data-ptr: "192.168.4.1  vbox.example.com"
 local-data: "vbox.example.com.  IN A 192.168.4.1"
 ###############
@@ -154,9 +154,9 @@ log-facility local7;
 
 
 subnet 192.168.4.0 netmask 255.255.255.0 {
-        option routers                  192.168.4.254;
+        option routers                  192.168.4.2;
         option subnet-mask              255.255.255.0;
-        option domain-name-servers       192.168.4.254;
+        option domain-name-servers       192.168.4.2;
 range 192.168.4.240 192.168.4.249;
 host labipa {
      hardware ethernet 08:00:27:F8:65:38;
@@ -174,7 +174,6 @@ host server2 {
 	}
 }
 EOF
-###
 ###
 %end
 #############################################################
