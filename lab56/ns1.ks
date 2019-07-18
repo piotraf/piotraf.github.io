@@ -166,5 +166,7 @@ EOF
 ###
 firewall-offline-cmd --zone=internal --add-service=dns --add-service=dhcp 
 ###
+sed -i.orig '/^PATH/a LC_ALL=en_US.UTF-8\nLANG=en_US.UTF-8' /root/.bash_profile
+sed -i 's/^export PATH/export PATH LANG LC_ALL/g' /root/.bash_profile
 %end
 #############################################################
