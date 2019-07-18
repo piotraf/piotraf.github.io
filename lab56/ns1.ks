@@ -77,18 +77,15 @@ sed -i.orig 's/\#allow 192.168.0.0\/16/allow 192.168.0.0\/16/' /etc/chrony.conf
 cat >> /etc/vimrc << "EOF"
 set background=dark
 EOF
-# utility script
-echo -n "Utility scripts"
-echo "== Utility scripts ==" >> /root/ks-post.debug.log
-wget -O /var/tmp/ns1-config.sh https://piotraf.github.io/lab56/ns1-config.sh 2 >> /root/ks-post.debug.log 2&>1
-chmod +x /var/tmp/ns1-config.sh
-echo .
 # remove unnecessary packages
 echo -n "Removing unnecessary packages"
 echo "== Removing unnecessary packages ==" >> /root/ks-post.debug.log
 yum -C -y remove linux-firmware >> /root/ks-post.debug.log 2&>1
 echo .
 ### 
+sed -i.orig '/^PATH/a LC_ALL=en_US.UTF-8\nLANG=en_US.UTF-8' /root/.bash_profile
+sed -i 's/^export PATH/export PATH LANG LC_ALL/g' /root/.bash_profile
+###
 sed -i.orig 's/# interface: 0.0.0.0$/interface: 0.0.0.0/g' /etc/unbound/unbound.conf
 sed -i 's/\# access-control: 127.0.0.0\/8 allow/access-control: 192.168.0.0\/16 allow/g' /etc/unbound/unbound.conf
 mv /etc/unbound/conf.d/example.com.conf{,.stub-zone}
@@ -166,7 +163,5 @@ EOF
 ###
 firewall-offline-cmd --zone=internal --add-service=dns --add-service=dhcp 
 ###
-sed -i.orig '/^PATH/a LC_ALL=en_US.UTF-8\nLANG=en_US.UTF-8' /root/.bash_profile
-sed -i 's/^export PATH/export PATH LANG LC_ALL/g' /root/.bash_profile
 %end
 #############################################################
