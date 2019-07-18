@@ -158,10 +158,20 @@ subnet 192.168.4.0 netmask 255.255.255.0 {
         option subnet-mask              255.255.255.0;
         option domain-name-servers       192.168.4.254;
 range 192.168.4.240 192.168.4.249;
-#host workstation {
-#     hardware ethernet 08:00:27:b0:d0:1a;
-#     fixed-address 192.168.4.2;
-#	}
+host labipa {
+     hardware ethernet 08:00:27:F8:65:38;
+     fixed-address 192.168.4.200;
+	}
+}
+host server1 {
+     hardware ethernet 08:00:27:BB:C7:A2;
+     fixed-address 192.168.4.210;
+	}
+}
+host server2 {
+     hardware ethernet 08:00:27:33:83:74;
+     fixed-address 192.168.4.220;
+	}
 }
 EOF
 ###
