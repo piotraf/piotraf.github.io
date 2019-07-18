@@ -123,7 +123,7 @@ forward-zone:
       forward-addr: 216.146.36.36  # Dyn Public
 ############
 EOF
-firewall-offline-cmd --zone=internal --add-service=dns
+
 ## create DHCP server for the LAB44
 cat > /etc/dhcp/dhcpd.conf << "EOF"
 # dhcpd.conf
@@ -162,18 +162,17 @@ host labipa {
      hardware ethernet 08:00:27:F8:65:38;
      fixed-address 192.168.4.200;
 	}
-}
 host server1 {
      hardware ethernet 08:00:27:BB:C7:A2;
      fixed-address 192.168.4.210;
 	}
-}
 host server2 {
      hardware ethernet 08:00:27:33:83:74;
      fixed-address 192.168.4.220;
 	}
 }
 EOF
+firewall-offline-cmd --zone=internal --add-service=dns --add-service=dhcp
 ###
 %end
 #############################################################
