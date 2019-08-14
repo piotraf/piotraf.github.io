@@ -27,7 +27,8 @@ volgroup vg0 pv.01
 logvol / --fstype xfs --name=lv_root --vgname=vg0 --size=1 --grow
 rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
-%packages --nobase --ignoremissing
+# %packages --nobase --ignoremissing # OL8 error
+%packages --ignoremissing
 @core  --nodefaults
 wget
 vim
