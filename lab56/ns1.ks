@@ -27,9 +27,7 @@ volgroup vg0 pv.01
 logvol / --fstype xfs --name=lv_root --vgname=vg0 --size=1 --grow
 rootpw "cangetin"
 user --name=admin --groups=wheel --plaintext --password=welcome1
-####################################################
-################### packages begin #################
-%packages --ignoremissing
+%packages --nobase --ignoremissing
 @core  --nodefaults
 wget
 vim
@@ -40,9 +38,10 @@ kernel-devel
 perl
 gcc
 -iwl*
+-ply*
+-postfix
+-*-firmware
 %end
-#################### packages end ####################
-#################### post begin #####################
 %post --log=/root/postinstall.log
 # install public access key for lab purposes
 mkdir -p /home/admin/.ssh
@@ -165,5 +164,4 @@ EOF
 firewall-offline-cmd --zone=internal --add-service=dns --add-service=dhcp 
 ###
 %end
-################## post end ##########################
-################### ALL END ###################################
+#############################################################
