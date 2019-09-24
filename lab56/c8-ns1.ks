@@ -40,7 +40,6 @@ gcc
 -iwl*
 -ply*
 -postfix
--*-firmware
 %end
 %post --log=/root/postinstall.log
 # install public access key for lab purposes
