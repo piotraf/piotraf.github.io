@@ -1,7 +1,7 @@
 ##############################################################
 #                   c8-ns1.ks template                       #
 # append to the boot kernel line (use TAB):                  #
-# inst.ks=http://piotraf.github.io/lab56/ns1.ks              #
+# inst.ks=http://piotraf.github.io/lab56/c8-ns1.ks           #
 ##############################################################
 install
 text
